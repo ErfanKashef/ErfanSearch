@@ -11,18 +11,21 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4">
       <Myname />
-      <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 auto-rows-fr gap-2 ">
-        <Calenderpage />
-        <Serchgoogle />
-        <Weather />
-        <Bookmark />
-        <div className="bg-pink-500 sm:col-span-2 md:col-span-2 flex items-center justify-center p-4">
-          5
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col w-full md:w-1/4 gap-4">
+          <Calenderpage />
+          <Selectbgcolor />
+          <Weather />
         </div>
-        <Selectbgcolor />
-      </div>
-      <div className="bg-gray-400/70 mt-4 rounded-lg">
-        <Todolist />
+        <div className="flex gap-4 w-full md:w-1/2">
+          <div className="flex flex-col gap-4 w-full">
+            <Serchgoogle />
+            <Bookmark />
+          </div>
+        </div>
+        <div className="bg-gray-700/80 rounded-lg w-full md:w-1/4">
+          <Todolist />
+        </div>
       </div>
     </div>
   );

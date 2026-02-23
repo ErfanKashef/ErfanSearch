@@ -10,6 +10,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -25,9 +26,9 @@ interface AddTaskDialogProps {
 
 export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [priority, setPriority] = useState<Priority>("low");
   const [open, setOpen] = useState(false);
-
   const [error, setError] = useState("");
 
   const handleAdd = () => {
@@ -39,11 +40,13 @@ export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
     onAdd({
       id: Date.now().toString(),
       title,
+      description,
       completed: false,
       priority,
     });
 
     setTitle("");
+    setDescription("");
     setPriority("low");
     setError("");
     setOpen(false);
@@ -55,9 +58,12 @@ export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
         <Button className="mb-4 bg-blue-500 text-white w-full">Add Task</Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[425px]">
+      {/* 🔥 بک‌گراند دیالوگ */}
+      <DialogContent className="sm:max-w-[425px] bg-gray-700/80 dark:bg-gray-800 rounded-xl shadow-lg">
         <DialogHeader>
-          <DialogTitle>Add New Task</DialogTitle>
+          <DialogTitle className="text-gray-900 dark:text-white">
+            Add New Task
+          </DialogTitle>
         </DialogHeader>
 
         <form
@@ -66,7 +72,8 @@ export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
             handleAdd();
           }}
         >
-          <div className="flex flex-col gap-2 mt-4">
+          <div className="flex flex-col gap-3 mt-4">
+            {/* Title */}
             <Input
               placeholder="Task title"
               value={title}
@@ -74,19 +81,29 @@ export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
                 setTitle(e.target.value);
                 if (e.target.value.trim()) setError("");
               }}
-              className="dark:bg-gray-800 dark:text-white"
+              className="bg-gray-200  dark:bg-gray-700 text-gray-900 dark:text-white"
             />
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
+            {/* Description */}
+            <Textarea
+              placeholder="Task description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white"
+            />
+
+            {/* Priority */}
             <Select
               value={priority}
               onValueChange={(val) => setPriority(val as Priority)}
             >
-              <SelectTrigger className="w-full dark:bg-gray-800 dark:text-white">
+              <SelectTrigger className="w-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white">
                 <SelectValue placeholder="Priority" />
               </SelectTrigger>
-              <SelectContent>
+
+              <SelectContent className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white">
                 <SelectItem value="low">Low</SelectItem>
                 <SelectItem value="medium">Medium</SelectItem>
                 <SelectItem value="high">High</SelectItem>
@@ -97,7 +114,7 @@ export const AddTaskDialog = ({ onAdd }: AddTaskDialogProps) => {
           <DialogFooter>
             <Button
               type="submit"
-              className="bg-blue-500 text-white mt-4 w-full"
+              className="bg-blue-500 hover:bg-blue-600 text-white w-full mt-4"
             >
               Add Task
             </Button>

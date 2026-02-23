@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useState, useEffect } from "react";
 import { Task } from "@/types/task";
-import { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { AddTaskDialog } from "./AddTaskDialog";
 import { TaskList } from "./TaskList";
 
@@ -46,42 +46,50 @@ export default function Todolist() {
     });
 
   return (
-    <div className="p-4">
+    <div className="p-4 flex flex-col gap-4">
       <Input
-        placeholder="Search tasks..."
+        placeholder="Search tasks by title..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="mb-4 dark:bg-gray-800 dark:text-white"
+        className="mb-0 w-full dark:bg-gray-800 dark:text-white"
       />
 
-      <div className="flex gap-2 mb-4">
-        <Button
-          variant={filter === "all" ? "default" : "outline"}
-          onClick={() => setFilter("all")}
-        >
-          All
-        </Button>
-        <Button
-          variant={filter === "active" ? "default" : "outline"}
-          onClick={() => setFilter("active")}
-        >
-          Active
-        </Button>
-        <Button
-          variant={filter === "completed" ? "default" : "outline"}
-          onClick={() => setFilter("completed")}
-        >
-          Completed
-        </Button>
+      <div className="flex flex-wrap gap-2 items-center">
+        <div className="flex gap-2 flex-wrap">
+          <Button
+            variant={filter === "all" ? "default" : "outline"}
+            onClick={() => setFilter("all")}
+          >
+            All
+          </Button>
+          <Button
+            variant={filter === "active" ? "default" : "outline"}
+            onClick={() => setFilter("active")}
+          >
+            Active
+          </Button>
+          <Button
+            variant={filter === "completed" ? "default" : "outline"}
+            onClick={() => setFilter("completed")}
+          >
+            Completed
+          </Button>
+        </div>
+
+        <div className="w-full">
+          <AddTaskDialog onAdd={addTask} />
+        </div>
       </div>
 
-      <AddTaskDialog onAdd={addTask} />
-
-      <TaskList
-        tasks={filteredTasks}
-        toggleTask={toggleTask}
-        deleteTask={deleteTask}
-      />
+      <div className="w-full">
+        <div className="max-h-[50vh] md:max-h-[65vh] overflow-auto">
+          <TaskList
+            tasks={filteredTasks}
+            toggleTask={toggleTask}
+            deleteTask={deleteTask}
+          />
+        </div>
+      </div>
     </div>
   );
 }

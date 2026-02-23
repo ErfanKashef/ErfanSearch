@@ -16,7 +16,7 @@ const Calenderpage = () => {
   const miladiDate = moment(now).format("dddd, DD MMMM YYYY");
 
   return (
-    <div className="bg-white/10 shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:row-span-2 flex flex-col items-center justify-center p-4 text-center">
+    <div className="bg-gray-700/80 shadow-2xl rounded-lg  flex flex-col items-center justify-center p-4 text-center text-white ">
       <div className="font-vazirmatn">📅 شمسی: {shamsiDate}</div>
       <div className="font-vazirmatn">📆 میلادی: {miladiDate}</div>
     </div>

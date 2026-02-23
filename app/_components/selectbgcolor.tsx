@@ -64,8 +64,8 @@ const SelectBgImage = () => {
   };
 
   return (
-    <div className="bg-gray-400/70 shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 p-2 flex items-center justify-between gap-3 font-roboto">
-      <p className="text-base font-bold">Wallpaper 🖼️</p>
+    <div className="bg-gray-700/80 shadow-2xl rounded-lg  p-2 flex items-center justify-between gap-3 font-roboto">
+      <p className="text-base font-light text-white">Wallpaper 🖼️</p>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>

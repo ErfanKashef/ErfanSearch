@@ -43,14 +43,14 @@ const Weather = () => {
 
   if (loading)
     return (
-      <div className="bg-white/10 shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 md:row-span-2 flex items-center justify-center p-4 text-center animate-pulse font-roboto">
+      <div className="bg-gray-700/80 hadow-2xl rounded-lg  flex items-center justify-center p-4 text-center animate-pulse font-roboto text-white">
         Loading...
       </div>
     );
 
   if (error)
     return (
-      <div className="bg-white/10 w-64shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 md:row-span-2 flex items-center justify-center p-4 text-center text-red-500 animate-pulse font-roboto">
+      <div className="bg-gray-700/80 w-64shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 md:row-span-2 flex items-center justify-center p-4 text-center text-red-500 animate-pulse font-roboto">
         {error}
       </div>
     );
@@ -58,14 +58,14 @@ const Weather = () => {
   const weatherMain = weather?.weather?.[0]?.main.toLowerCase() || "";
 
   return (
-    <div className="bg-white/10 shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 md:row-span-2 flex gap-4 items-center justify-center p-4 text-center relative overflow-hidden">
-      <h2 className="text-xl font-bold font-vazirmatn">
+    <div className="bg-gray-700/80 shadow-2xl rounded-lg sm:col-span-2 md:col-span-2 md:col-start-6 md:row-span-2 flex gap-4 items-center justify-center p-4 text-center  relative overflow-hidden">
+      <h2 className="text-xl font-bold font-vazirmatn text-white">
         {weather?.name || "نام نامعلوم"}
       </h2>
-      <p className="text-4xl font-bold font-vazirmatn">
+      <p className="text-4xl font-bold font-vazirmatn text-white">
         {weather?.main?.temp ? Math.round(weather.main.temp) + "°C" : "--"}
       </p>
-      <p className="capitalize font-vazirmatn">
+      <p className="capitalize font-vazirmatn text-white">
         {weather?.weather?.[0]?.description || "اطلاعات موجود نیست"}
       </p>
 

@@ -42,14 +42,14 @@ const Myname = () => {
     <div className="mt-20 mb-5 flex items-center justify-between">
       {/* user */}
       <div>
-        <h1 className="text-4xl font-bold font-roboto">Erfan Kashef</h1>
-        <p className="font-roboto">Developer</p>
+        <h1 className="text-4xl font-bold font-roboto text-white">Erfan Kashef</h1>
+        <p className="font-roboto text-white">Developer</p>
       </div>
 
       {/* time & greeting */}
-      <div className="flex flex-col items-end text-right">
-        <p className="text-2xl font-mono">{time}</p>
-        <p className="text-2xl font-semibold">{greeting}</p>
+      <div className="flex flex-col items-end text-white">
+        <p className="text-2xl font-mono text-white">{time}</p>
+        <p className="text-2xl font-semibold text-white">{greeting}</p>
       </div>
     </div>
   );

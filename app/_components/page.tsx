@@ -21,12 +21,12 @@ const SearchGoogle = () => {
   };
 
   return (
-    <div className="bg-white/10 shadow-2xl rounded-lg sm:col-span-2 md:col-span-3 md:col-start-3 p-3 font-roboto">
+    <div className="bg-gray-700/80 shadow-2xl rounded-lg  p-3 font-roboto w-full">
       <form onSubmit={onSearch}>
         <InputGroup className="w-full">
           <InputGroupInput name="q" placeholder="Search..." />
           <InputGroupAddon>
-            <IconBrandGoogleFilled className="text-gray-600" />
+            <IconBrandGoogleFilled className="text-white" />
           </InputGroupAddon>
         </InputGroup>
       </form>

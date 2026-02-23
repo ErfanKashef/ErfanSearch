@@ -68,7 +68,7 @@ const Bookmark = () => {
   };
 
   return (
-    <div className="bg-white/10 shadow-2xl rounded-lg  sm:col-span-4 md:col-span-3 md:col-start-3 md:row-span-2 p-4 flex flex-col gap-4 font-roboto">
+    <div className="bg-gray-700/80 shadow-2xl rounded-lg   p-4 flex flex-col gap-4 font-roboto">
       {/* Input Group */}
       <InputGroup>
         <InputGroupInput
@@ -80,7 +80,7 @@ const Bookmark = () => {
         <InputGroupAddon>
           <IconPlus
             onClick={addBookmark}
-            className="text-gray-600 cursor-pointer"
+            className="text-white cursor-pointer"
           />
         </InputGroupAddon>
       </InputGroup>
