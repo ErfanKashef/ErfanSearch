@@ -24,6 +24,7 @@ export const AddTask = ({ onAdd }: AddTaskProps) => {
     onAdd({
       id: Date.now().toString(),
       title,
+      description: "",
       completed: false,
       priority,
     });
